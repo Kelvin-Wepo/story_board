@@ -60,3 +60,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Special thanks to the Tkinter library for providing the GUI framework.
 
 Feel free to customize and extend this tool to meet your specific needs or to add more features as required.
+
+## Screenshots
