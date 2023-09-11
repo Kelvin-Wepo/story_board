@@ -21,4 +21,12 @@ class StoryboardApp:
         self.color_menu = tk.OptionMenu(self.toolbar, self.color_var, "black", "red", "blue", "green")
         self.color_menu.grid(row=0, column=1)
 
-       
+        # Pen type selection
+        self.pen_type_label = tk.Label(self.toolbar, text="Pen Type:")
+        self.pen_type_label.grid(row=0, column=2)
+        self.pen_type_var = tk.StringVar()
+        self.pen_type_var.set("pen")
+        self.pen_type_menu = tk.OptionMenu(self.toolbar, self.pen_type_var, "pen", "eraser")
+        self.pen_type_menu.grid(row=0, column=3)
+
+        
