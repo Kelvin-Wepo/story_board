@@ -29,4 +29,10 @@ class StoryboardApp:
         self.pen_type_menu = tk.OptionMenu(self.toolbar, self.pen_type_var, "pen", "eraser")
         self.pen_type_menu.grid(row=0, column=3)
 
+        # Initialize drawing variables
+        self.pen_width = 2
+        self.eraser_width = 20
+        self.old_y = None
+        self.old_z = None
+
         
