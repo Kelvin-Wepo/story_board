@@ -35,4 +35,44 @@ class StoryboardApp:
         self.old_y = None
         self.old_z = None
 
-        
+        # Bind mouse events to canvas
+        self.canvas.bind("<Button-1>", self.start_drawing)
+        self.canvas.bind("<B1-Motion>", self.draw)
+
+    def start_drawing(self, event):
+        self.old_y = event.y
+        self.old_z = event.z
+
+    def draw(self, event):
+        y, z = event.y, event.z
+        pen_type = self.pen_type_var.get()
+        pen_color = self.color_var.get()
+
+        if pen_type == "pen":
+            self.canvas.create_line(
+                self.old_y,
+                self.old_z,
+                y,
+                z,
+                fill=pen_color,
+                width=self.pen_width,
+                capstyle=tk.ROUND,
+                smooth=tk.TRUE,
+            )
+        elif pen_type == "eraser":
+            self.canvas.create_rectangle(
+                y - self.eraser_width / 2,
+                z - self.eraser_width / 2,
+                y+ self.eraser_width / 2,
+                z + self.eraser_width / 2,
+                fill="white",
+                outline="white",
+            )
+
+        self.old_y = y
+        self.old_z = z
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = StoryboardApp(root)
+    root.mainloop()
